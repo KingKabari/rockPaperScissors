@@ -3,7 +3,7 @@ function getComputerChoice() {
 const choices = ["rock", "paper", "scissors"];
 const randomIndex = Math.floor(Math.random() * choices.length);
 const computerChoice = choices[randomIndex];
-alert(`Computer chose ${computerChoice}`);
+//alert(`Computer chose ${computerChoice}`);
 console.log(`Computer chose ${computerChoice}`);
   return computerChoice;
 }
@@ -25,8 +25,6 @@ function playRound(humanChoice, computerChoice) {
     console.log("It's a tie!");
     return "tie";
   }
-
-  // Human wins cases
   if (
     (humanChoice === "rock" && computerChoice === "scissors") ||
     (humanChoice === "paper" && computerChoice === "rock") ||
@@ -34,13 +32,27 @@ function playRound(humanChoice, computerChoice) {
   ) {
     console.log(`You win! ${humanChoice} beats ${computerChoice}`);
     return "human";
+  } else {
+    console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
+    return "computer";
   }
-
-// Computer wins cases
-  else
-  console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
-  return "computer";
 }
+
+document.getElementById("rockBtn").addEventListener("click", function() {
+  const playerChoice = "rock";
+  const computerChoice = getComputerChoice();
+  playRound(playerChoice, computerChoice);
+});
+document.getElementById("paperBtn").addEventListener("click", function() {
+  const playerChoice = "paper";
+  const computerChoice = getComputerChoice();
+  playRound(playerChoice, computerChoice);
+});
+document.getElementById("scissorsBtn").addEventListener("click", function() {
+  const playerChoice = "scissors";
+  const computerChoice = getComputerChoice();
+  playRound(playerChoice, computerChoice);
+});
 
 /*for (let round = 1; round <= 5; round++) {
   const humanSelection = getHumanChoice();
@@ -52,8 +64,7 @@ function playRound(humanChoice, computerChoice) {
     } else if (winner === "computer") {
       computerScore++;
     }
-  }*/
-
+  }
   // Declare overall winner
   if (humanScore > computerScore) {
     alert(`You win the game! Final Score: Human ${humanScore}, Computer ${computerScore}`);
@@ -64,7 +75,7 @@ function playRound(humanChoice, computerChoice) {
   } else {
     alert(`The game is a tie! Final Score: Human ${humanScore}, Computer ${computerScore}`);
     console.log(`The game is a tie! Final Score: Human ${humanScore}, Computer ${computerScore}`);
-  }
+  } */
 }
 
 playGame();
