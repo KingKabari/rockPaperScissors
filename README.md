@@ -1,4 +1,4 @@
-# rockPaperScissors
+
 # Rock Paper Scissors
 
 A simple Rock Paper Scissors game built as part of [The Odin Project](https://www.theodinproject.com/) JavaScript course.
