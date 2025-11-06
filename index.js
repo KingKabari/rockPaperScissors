@@ -42,7 +42,7 @@ function playRound(humanChoice, computerChoice) {
   return "computer";
 }
 
-for (let round = 1; round <= 5; round++) {
+/*for (let round = 1; round <= 5; round++) {
   const humanSelection = getHumanChoice();
   const computerSelection = getComputerChoice();
   const winner = playRound(humanSelection, computerSelection);
@@ -52,7 +52,7 @@ for (let round = 1; round <= 5; round++) {
     } else if (winner === "computer") {
       computerScore++;
     }
-  }
+  }*/
 
   // Declare overall winner
   if (humanScore > computerScore) {
