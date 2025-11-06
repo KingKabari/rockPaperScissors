@@ -1,3 +1,21 @@
+function checkWinner() {
+  const winnerDiv = document.getElementById("winner");
+  if (humanScore >= 5) {
+    winnerDiv.textContent = "🎉 You win the game!";
+    disableButtons();
+  } else if (computerScore >= 5) {
+    winnerDiv.textContent = "Computer wins the game!";
+    disableButtons();
+  }
+}
+
+function disableButtons() {
+  document.getElementById("rockBtn").disabled = true;
+  document.getElementById("paperBtn").disabled = true;
+  document.getElementById("scissorsBtn").disabled = true;
+}
+
+
 
 function getComputerChoice() {
 const choices = ["rock", "paper", "scissors"];
@@ -48,6 +66,7 @@ document.getElementById("rockBtn").addEventListener("click", function() {
   if (winner === "human") humanScore++;
   else if (winner === "computer") computerScore++;
   updateScore();
+  checkWinner();
 });
 document.getElementById("paperBtn").addEventListener("click", function() {
   const playerChoice = "paper";
@@ -56,6 +75,7 @@ document.getElementById("paperBtn").addEventListener("click", function() {
   if (winner === "human") humanScore++;
   else if (winner === "computer") computerScore++;
   updateScore();
+  checkWinner();
 });
 document.getElementById("scissorsBtn").addEventListener("click", function() {
   const playerChoice = "scissors";
@@ -64,6 +84,7 @@ document.getElementById("scissorsBtn").addEventListener("click", function() {
   if (winner === "human") humanScore++;
   else if (winner === "computer") computerScore++;
   updateScore();
+  checkWinner();
 });
 
 // Initial score display
