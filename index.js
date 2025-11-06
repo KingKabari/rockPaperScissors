@@ -1,23 +1,8 @@
-function checkWinner() {
-  const winnerDiv = document.getElementById("winner");
-  if (humanScore >= 5) {
-    winnerDiv.textContent = "🎉 You win the game!";
-    disableButtons();
-  } else if (computerScore >= 5) {
-    winnerDiv.textContent = "Computer wins the game!";
-    disableButtons();
-  }
-}
+document.addEventListener("DOMContentLoaded", function() {
+  let humanScore = 0;
+  let computerScore = 0;
 
-function disableButtons() {
-  document.getElementById("rockBtn").disabled = true;
-  document.getElementById("paperBtn").disabled = true;
-  document.getElementById("scissorsBtn").disabled = true;
-}
-
-
-
-function getComputerChoice() {
+  function getComputerChoice() {
 const choices = ["rock", "paper", "scissors"];
 const randomIndex = Math.floor(Math.random() * choices.length);
 const computerChoice = choices[randomIndex];
@@ -31,10 +16,6 @@ const computerChoice = choices[randomIndex];
   console.log(`You chose ${humanChoice}`);
   return humanChoice;
 }*/
-
-
-  let humanScore = 0;
-  let computerScore = 0;
 
 function playRound(humanChoice, computerChoice) {
  const resultsDiv = document.getElementById("results");
@@ -57,6 +38,23 @@ function playRound(humanChoice, computerChoice) {
 
 function updateScore() {
   document.getElementById("score").textContent = `Score — You: ${humanScore}, Computer: ${computerScore}`;
+}
+
+  function checkWinner() {
+  const winnerDiv = document.getElementById("winner");
+  if (humanScore >= 5) {
+    winnerDiv.textContent = "🎉 You win the game!";
+    disableButtons();
+  } else if (computerScore >= 5) {
+    winnerDiv.textContent = "Computer wins the game!";
+    disableButtons();
+  }
+}
+
+function disableButtons() {
+  document.getElementById("rockBtn").disabled = true;
+  document.getElementById("paperBtn").disabled = true;
+  document.getElementById("scissorsBtn").disabled = true;
 }
 
 document.getElementById("rockBtn").addEventListener("click", function() {
@@ -89,6 +87,7 @@ document.getElementById("scissorsBtn").addEventListener("click", function() {
 
 // Initial score display
 updateScore();
+});
 
 /*for (let round = 1; round <= 5; round++) {
   const humanSelection = getHumanChoice();
